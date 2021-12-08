@@ -66,8 +66,9 @@ if __name__ == "__main__":
         simulation_time, training_time = Simulation.run(episode, epsilon)  # run the simulation
         print('Simulation time:', simulation_time, 's - Training time:', training_time, 's - Total:', round(simulation_time+training_time, 1), 's')
         if episode%10==0:
-        	 Model.save_model(path)
-        	 print("----- Model info saved at:", path)
+        	path = set_train_path(config['models_path_name'])
+        	Model.save_model(path)
+        	print("----- Model info saved at:", path)
         episode += 1
 
 
